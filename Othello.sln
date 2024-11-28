@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35506.116 d17.12
+VisualStudioVersion = 17.12.35506.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Othello", "Othello\Othello.csproj", "{D45903F9-5CF2-43F5-99EB-7B1D761A40AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OthelloTests", "OthelloTests\OthelloTests.csproj", "{B51CBBFD-B2E2-43B7-A2D5-BABEDD4CE8D3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{D45903F9-5CF2-43F5-99EB-7B1D761A40AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D45903F9-5CF2-43F5-99EB-7B1D761A40AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D45903F9-5CF2-43F5-99EB-7B1D761A40AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B51CBBFD-B2E2-43B7-A2D5-BABEDD4CE8D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B51CBBFD-B2E2-43B7-A2D5-BABEDD4CE8D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B51CBBFD-B2E2-43B7-A2D5-BABEDD4CE8D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B51CBBFD-B2E2-43B7-A2D5-BABEDD4CE8D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

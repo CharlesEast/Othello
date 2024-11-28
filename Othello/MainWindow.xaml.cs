@@ -5,18 +5,18 @@ using System.Windows.Controls;
 using System.Threading.Tasks;
 using System.Windows.Media;
 
-namespace Othello2D
+namespace Othello
 {
     public partial class MainWindow : Window
     {
         private int[,] board; // Game board
         private Button[,] buttons; // UI buttons
-        private int currentPlayer = 1; // 1: Player, 2: AI
-        private List<int[]> directions = new List<int[]>
+        private int currentPlayer = 1; // 1: Human player, 2: AI opponent
+        private readonly List<int[]> directions = new List<int[]>
         {
             new int[]{-1, -1}, new int[]{-1, 0}, new int[]{-1, 1},
-            new int[]{0, -1},                new int[]{0, 1},
-            new int[]{1, -1}, new int[]{1, 0}, new int[]{1, 1}
+            new int[]{0, -1},                 new int[]{0, 1},
+            new int[]{1, -1},  new int[]{1, 0}, new int[]{1, 1}
         };
         private int roundCounter = 1;
         private string difficulty = "Easy";
@@ -99,10 +99,10 @@ namespace Othello2D
 
             // Set starting positions
             int mid = boardSize / 2;
-            board[mid - 1, mid - 1] = 2;
-            board[mid, mid] = 2;
-            board[mid - 1, mid] = 1;
-            board[mid, mid - 1] = 1;
+            board[mid - 1, mid - 1] = 2; // AI (White)
+            board[mid, mid] = 2;         // AI (White)
+            board[mid - 1, mid] = 1;     // Human (Black)
+            board[mid, mid - 1] = 1;     // Human (Black)
         }
 
         /// <summary>
@@ -111,7 +111,8 @@ namespace Othello2D
         private void UpdateUI()
         {
             RoundCounterText.Text = $"Round: {roundCounter}";
-            TurnIndicatorText.Text = currentPlayer == 1 ? "Your Turn" : "AI's Turn";
+            string turnText = currentPlayer == 1 ? "Your Turn" : "AI's Turn";
+            TurnIndicatorText.Text = turnText;
         }
 
         /// <summary>
@@ -407,7 +408,7 @@ namespace Othello2D
                         bestMove = move;
                     }
                 }
-                else // Minimizing for player
+                else // Minimizing for human player
                 {
                     if (score < bestScore)
                     {
@@ -485,7 +486,7 @@ namespace Othello2D
 
                 MessageBox.Show(message, "Game Over", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                // Optionally, reset the game
+                // Reset the game
                 ResetGame();
             }
             else if (currentPlayer == 1 && playerMoves.Count == 0)
